@@ -1,0 +1,11 @@
+# Ignore specific files
+webSill/app/media/file/DrawKit_0080_3D_Black_Friday_MiniIcons.zip
+webSill/app/media/file/DrawKit_0124_Real_Estate_Homeowner_Illustrations.zip
+webSill/app/media/file/DrawKit_0095_SaaS_Startup_Icons.zip
+
+# Ignore all files in the specified directories
+webSill/app/media/file/
+webSill/media/webSill/media/file/
+
+# Ignore env
+env/

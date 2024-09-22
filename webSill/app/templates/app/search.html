@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block linkcss%}
+<link rel="stylesheet" href="{% static 'app/css/search.css' %}" type="text/css">
+{% endblock %}
+
+{% block main-content%}
+<div id="container">
+    <h5 class='Output'> Search results for {{searched}} </h5> <br />
+    {% for key in keys %}
+    {% endfor %}
+    <div class="container1">
+        <div class="product">
+            <div class = "product-list">
+                {%for collection in keys%}
+                    <div class = "product-item">
+                        <a href ="{%url 'collection'%}?id={{collection.ID}}" class="linkproduct"> 
+                            <div class="bgproduct">
+                                <img src="{% static 'app/images/body/bg_box.svg'%}">
+                                <div class="imageproduct">
+                                    <img src="{{collection.Image.url}}">
+                                </div>
+                                <h3 class="nameproduct">{{collection.Name}}</h3>
+                            </div>
+                        </a>
+                    </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

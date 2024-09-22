@@ -1,0 +1,93 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block linkcss%}
+<link rel="stylesheet" href="{% static 'app/css/collection.css' %}" type="text/css">
+{% endblock %}
+
+{% block main-content%}
+    {%for collect in collection %}
+        <div class="contain">
+            <div class='background'></div>
+            <div class='contain0'>
+                <div class='contain1'>
+                    <div class='img1'>
+                        <img src="{{collect.Image1.url}}" class= "img1-banner">
+                    </div>
+                    <div class='img2'>
+                        {% if collect.Image2 %}
+                            <img src="{{collect.Image2.url}}" class="img2-banner">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class='contain2'>
+                    <div class='boxdl'>
+                        <div class='Name'>
+                            <h2>{{collect.Name}}</h2>
+                        </div>
+                        <div class='Detail'>
+                            <p>{{collect.Detail}}</p>
+                        </div>
+                        <div class='line'></div>
+                        {% if user.is_authenticated %}
+                            {% comment %} <form action=" " method="post"> {% endcomment %}
+                                {% comment %} {% csrf_token %} {% endcomment %}
+                                <div id="button-download">
+                                    <a href="{{collect.Linkdownload.url}}" target='_blank' data-product={{collect.ID}} data-action="add" class="update-download">
+                                        <div id='download'>
+                                            <div>Download here</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% comment %} </form> {% endcomment %}
+                        {%else%}
+                            <div class="buttonsignin2">
+                                <a href="/Signin" >
+                                    <div id='signin'>
+                                        <div>Sign in to download</div>
+                                    </div>
+                                </a>
+                            </div>
+                        {%endif%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {%endfor%}
+    <script src="{%static 'app/js/download.js' %}"></script>
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getToken('csrftoken');
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:4
+                }
+            }
+        })
+    </script>
+{%endblock%}

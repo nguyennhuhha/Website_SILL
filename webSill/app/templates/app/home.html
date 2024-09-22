@@ -1,0 +1,80 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block linkcss%}
+<link rel="stylesheet" href="{% static 'app/css/home.css' %}" type="text/css">
+{% endblock %}
+
+{% block main-content%}
+    <div id="container">
+        <div class="container1">
+            <h1 class="headline">Your wonderful source for all things creative</h1>
+            <div class = "banner1">
+                <img src="{% static 'app/images/body/plane.svg' %}" alt="Banner1" style="display: flex; justify-content: center;">
+            </div>
+            
+            <h2 class="headline2">Let SILL make your design simple.
+                Hand-drawn 2D & 3D illustrations and icons. Perfect for your next project.
+                All in one place.
+            </h2>
+            {% if not user.is_authenticated %}
+                
+                    <div id="buttonsignin">
+                        <a href="/Signin" >
+                            <div id='Signin'>
+                                <div>Sign In</div>
+                            </div>
+                        </a>
+                    </div>
+            {%endif%}
+        </div>
+        <div class="banner">
+            <img src="{% static 'app/images/body/banner.svg'%}" alt="Banner2">
+        </div>
+        <div class="container2">
+            <div class="headline3">Unlimited access to Sill content</div>
+            <div class="nav">
+                <div class="list">
+                    <div class="listitem1">
+                        <div class="img1">
+                            <img width="230" src="{% static 'app/images/body/2D.svg'%}" loading="lazy" style="max-width: 100%; height: auto;">
+                        </div>
+                        <div class="nameitem">2D</div>
+                        <a href="/2D" class="linkpage"></a>
+                    </div>
+                    <div class="listitem2">
+                        <div class="img2">
+                            <img width="230" src="{% static 'app/images/body/3D.png'%}" loading="lazy">
+                        </div>
+                        <div class="nameitem">3D</div>
+                        <a href="/3D" class="linkpage"></a>
+                    </div>
+                    <div class="listitem3">
+                        <div class="img3">
+                            <img width="230" src="{% static 'app/images/body/Icon.svg'%}" loading="lazy">
+                        </div>
+                        <div class="nameitem">Icon</div>
+                        <a href="/Icon" class="linkpage"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="product">
+                <div class = "product-list">
+                    {%for collection in collections%}
+                        <div class = "product-item">
+                            <a href ="{%url 'collection'%}?id={{collection.ID}}" class="linkproduct"> 
+                                <div class="bgproduct">
+                                    <img src="{% static 'app/images/body/bg_box.svg'%}">
+                                    <div class="imageproduct">
+                                        <img src="{{collection.Image.url}}">
+                                    </div>
+                                    <h3 class="nameproduct">{{collection.Name}}</h3>
+                                </div>
+                            </a>
+                        </div>
+                    {%endfor%}
+                </div>
+            </div>
+    </div>
+{% endblock main-content %}

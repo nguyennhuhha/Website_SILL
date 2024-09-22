@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block linkcss%}
+<link rel="stylesheet" href="{% static 'app/css/About.css' %}" type="text/css">
+{% endblock %}
+
+{% block main-content%}
+    <div id="container">
+        <div class="container1">
+            <h1 class="headline">The Sill Story</h1>
+            <h2 class="headline2">We design assets and graphics to unlock your creativity</h2>
+            <div class="intro1">
+                <div class="intro-text">
+                    <h2>Hello, my name is Ha. I am a second-year student majoring in Computer Science at UIT University.
+                        I have initiated a web project named "Sill" which focuses on selling graphic designs starting from May 2023!
+                        This project serves the dual purpose of research and learning for the "Python Programming Techniques" course.
+                    </h2>
+                </div>
+                <img src="{% static 'app/images/body/about-page/girl.svg'%}" alt="Introg">
+            </div>
+        </div>
+    </div>
+
+{% endblock main-content%}

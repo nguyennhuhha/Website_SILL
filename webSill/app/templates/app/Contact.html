@@ -1,0 +1,53 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block linkcss%}
+<link rel="stylesheet" href="{% static 'app/css/Contact.css' %}" type="text/css">
+{% endblock %}
+
+{% block main-content%}
+
+
+<div id="container">
+    <div class="imagecontact">
+        <img src="{% static 'app/images/body/piccontact.png'%}" >
+    </div>
+
+    <div class="container1">
+        <header>
+            <h1 class="headline">Contact Us</h1>
+            <h2 class="headline2">Feel free to contact us at any time.
+            </h2>
+            <h3 class="headline3">SellIllustration@gmail.com</h3> 
+        </header>
+
+        <div class ="container2">
+            <div class="facebook">
+                <a href="https://www.facebook.com/sill.awes/">
+                    <img src="{% static 'app/images/body/facebook.png'%}">
+                    
+                </a>
+            </div>
+    
+            <div class="instagram">
+                <a href="https://www.instagram.com/sill.awes/">
+                    <img src="{% static 'app/images/body/instagram.png'%} ">
+                    
+                </a>
+            </div>
+
+            <div class="twitter">
+                <a href="https://twitter.com/sill_awes">
+                    <img src="{% static 'app/images/body/twitter.png'%} ">
+                    
+                </a>
+            </div>
+        </div>
+    </div>
+
+    
+        
+         
+</div>
+
+{%endblock%}
