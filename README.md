@@ -8,7 +8,4 @@
 
 ## Below is a demo video of the website:
 
-https://github.com/user-attachments/assets/a9f6c9d6-797a-462e-b1f0-4f3e47cb4a70
-
-
 [![Watch the video](https://img.youtube.com/vi/DJ44fToi1tE/maxresdefault.jpg)](https://youtu.be/DJ44fToi1tE)
